@@ -1,0 +1,201 @@
+var _domain=".labanquepostale.fr";
+if(location.href.indexOf(".laposte.fr")>0){_domain=".laposte.fr"
+}$(document).ready(function(){if(OST_origin==="widget1"){blocageWindowsPhone()
+}if(OST_origin==="widget2"){afficherPopInSuiviBudget()
+}if(OST_origin==="pmotactile"||OST_origin==="tactile"){$(".labelVisible").addClass("webaccess").removeClass("labelVisible")
+}if(isNavigateurEdge()){$("#val_cel_identifiant").attr("onblur","activePlaceholderIe(this);");
+$("#val_cel_identifiant").attr("onfocus","editLogin();");
+$("#val_cel_identifiant").removeAttr("placeholder");
+$('<input type="text" class="input-non-modif cache" id="val_cel_identifiant_hidden" value="Saisissez ici votre identifiant" onfocus="editLogin();"/>').insertBefore($("#val_cel_identifiant"));
+$('<input type="text" disabled="disabled" class="cache" id="cvs-bloc-mdp-input-hidden" value="Composez votre mot de passe"/>').insertBefore($("#cvs-bloc-mdp-input"));
+var e=PATH_STATIQUE+"/js/cvs_ie.js";
+var r=document.createElement("script");
+r.type="text/javascript";
+r.src=e;
+document.body.appendChild(r)
+}$("#loader").removeClass("loading");
+$("#conteneurCvs").removeClass("zone-inactif");
+$("#conteneurCvs").removeAttr("style");
+document.documentElement.style.webkitUserSelect="none";
+if(document.getElementById("messagePrecaution")!=undefined){document.getElementById("messagePrecaution").innerHTML="Authentification par vocalisation. Attention aux oreilles indiscr\350tes. Conseil : connectez-vous dans un endroit s\373r ou utilisez un casque audio."
+}if(document.getElementById("messageDebutClavier")!=undefined){document.getElementById("messageDebutClavier").innerHTML="Mode op\351ratoire : Le clavier virtuel vocalis\351 marche sur les ordinateurs fixes et portables, ainsi que sur les m\351dias tactiles APPLE. Pour acc\351der au mode op\351ratoire sp\351cifique d\351taill\351, aller sur labanquepostale.fr et cliquer sur le lien \253Accessibilit\351\273."
+}if(document.getElementById("messageDebutClavier2")!=undefined){document.getElementById("messageDebutClavier2").innerHTML="Navigation : pour vocaliser chaque case, utiliser TAB et SHIFT+TAB ou ALT+fl\350che gauche et droite sur PC; sur MAC fl\350che gauche et droite, TAB et SHIFT+TAB ou touche VO+fl\350che gauche et droite. Sur les m\351dias tactiles APPLE, utiliser les gestes VOICEOVER. Pour s\351lectionner et valider des chiffres, utiliser barre espace ou entr\351e sur PC ou MAC, et le geste double tappe sur les m\351dias tactiles APPLE ce qui produit un son de confirmation. Le bouton Effacer efface les chiffres saisis. La validation du formulaire devient possible lorsque l\264identifiant et tous les chiffres du mot de passe sont saisis."
+}if(document.getElementById("day")!=undefined){construireSelectsDate()
+}if(isNoIOS()){$("#cvs-lien-voca").attr("class","cache");
+$("#messageDebutClavier").attr("aria-hidden","true");
+$("#messageDebutClavier2").attr("aria-hidden","true");
+$("#cvs_swf").hide();
+$("#audio_box").hide()
+}else{if(isIOS()){$("#valider").on("touchstart",function(){$("#valider").click()
+});
+$("#effacer").on("touchstart",function(){$("#effacer").click()
+});
+$("#cvs_swf").hide();
+updateVocalIOS()
+}else{updateVocal()
+}}var p=$("#val_cel_identifiant_masque");
+if(p.length>0){var n;
+try{n=Cookie.lire("CVS_DONNEE_MEMO")
+}catch(m){console.log("erreur lors du chargement de l'identifiant")
+}if(n&&n.length>9&&!isNaN(n)){$("#val_cel_identifiant").val(n);
+var q=document.getElementById("saveId");
+if(q){q.checked=true
+}$("#val_cel_identifiant").hide();
+if(isNavigateurEdge()){$("#val_cel_identifiant_hidden").hide()
+}$("#val_cel_identifiant_masque").val("********"+n.substring(8,10));
+$("#val_cel_identifiant_masque").css("display","block")
+}else{$("#val_cel_identifiant").val("");
+$("#val_cel_identifiant").show();
+if(document.getElementById("val_cel_identifiant_masque")!=undefined){$("#val_cel_identifiant_masque").hide()
+}}}if(document.getElementById("cvs-bloc-mdp-input-hidden")!=undefined){if(document.getElementById("val_cel_identifiant_hidden")!=undefined){document.getElementById("val_cel_identifiant_hidden").className="input-non-modif";
+document.getElementById("val_cel_identifiant").className="webaccess"
+}document.getElementById("cvs-bloc-mdp-input-hidden").className="";
+document.getElementById("cvs-bloc-mdp-input").className="cache";
+var i=document.getElementById("cvs-bloc-mdp-input");
+var l=document.getElementsByTagName("button");
+for(var o=0;
+o<l.length;
+o++){l[o].onclick=function(){editMdp()
+}
+}}CVSVTable.activate();
+$("#val_cel_identifiant").bind("keyup",valid_ident);
+$("#val_cel_identifiant").bind("change",valid_ident);
+valid_ident();
+$("#cs").val("");
+if($("#cvs-lien-voca-active").attr("class")==="cache"){Vocalisation.active=false;
+activerVocalisation()
+}});
+function isNavigateurEdge(){var h=false;
+var e=window.navigator.userAgent.match(/Windows NT (([0-9])+\.([0-9])+)/);
+if(e){var f=parseFloat(e[1]);
+var g=window.navigator.userAgent.match(/Edge\/\d+/);
+if(f>=10&&g){h=true
+}}return h
+}function modifIdent(){var b=document.getElementById("saveId");
+if(b.checked===false){if(document.getElementById("val_cel_identifiant_masque")!=undefined){$("#val_cel_identifiant_masque").hide()
+}$("#val_cel_identifiant").val("");
+if(isNavigateurEdge()){$("#val_cel_identifiant_hidden").show()
+}$("#val_cel_identifiant").show();
+effacerIdMemorise();
+if(document.getElementById("cvs-bloc-mdp-input-hidden")!=undefined){if(document.getElementById("val_cel_identifiant_hidden")!=undefined){document.getElementById("val_cel_identifiant_hidden").className="input-non-modif";
+document.getElementById("val_cel_identifiant").className="webaccess"
+}document.getElementById("cvs-bloc-mdp-input-hidden").className="";
+document.getElementById("cvs-bloc-mdp-input").className="cache"
+}}valid_ident()
+}function effacerIdMemorise(){try{var d=new Date();
+d.setTime(d.getTime()-1);
+Cookie.creer("CVS_DONNEE_MEMO","",d,"/",document.domain)
+}catch(c){console.log("erreur lors de la suppression l'identifiant sauvegard?")
+}}function valid_ident(){if(isIdentOk()){activateValid()
+}else{deactivateValid()
+}}function isIdentOk(){var j=true;
+var g=true;
+var i=$("#val_daten");
+if(i.length>0){var l=new RegExp("[ajm]","i");
+if(i.val().match(l)!=null){g=false
+}}var h=$("#val_cel_identifiant");
+if(h.length>0){var k=h.val();
+if(!(k.length==10||k.length==11)){j=false
+}}return(j&&g&&CVSVTable.nb==CVSVTable.nbmax)
+}function sendForm(){var e=document.getElementById("saveId");
+if(e){if(e.checked){var d=new Date();
+d.setTime(d.getTime()+5184000000);
+try{Cookie.creer("CVS_DONNEE_MEMO",$("#val_cel_identifiant").val(),d,"/",document.domain)
+}catch(f){console.log("erreur lors de la sauvegarde de l'identifiant")
+}}else{effacerIdMemorise()
+}}if(_envoi=="false"&&isIdentOk()){_envoi="true";
+window.document.forms.formAccesCompte.submit();
+return true
+}else{return false
+}}function blocageAccesCompte(){currentPageUrlIs=document.location.toString();
+var n=true;
+var v=false;
+var u=false;
+var j="";
+var i=location.search.substring(1).split("&");
+for(var s=0;
+s<i.length;
+s++){var o=i[s].split("=");
+if(o[0]==="URL"){j=o[1]
+}else{if(o[0]==="codeMedia"){u=true
+}if(o[1]==="widget1"){v=true
+}else{if(o[1]==="9047"||o[1]==="9048"||o[1]==="9045"){n=false
+}}}}if(j!=""){j=unescape(j);
+var r=j.split("?");
+i=r[1].split("&");
+for(var t=0;
+t<i.length;
+t++){var q=i[t].split("=");
+if(q[0]==="codeMedia"){u=true
+}if(q[1]==="widget1"){v=true
+}else{if(q[1]==="9047"||q[1]==="9048"||q[1]==="9045"){n=false
+}}}}var p=u&&n;
+if(v&&p){$("#messagePrecaution").remove();
+$("#cvs-bloc-identifiant").remove();
+$("#cvs-bloc-date-naissance").remove();
+$("#cvs-bloc-mdp").remove();
+$("#cvs-bloc-boutons").remove();
+$("#cvs-bloc").attr("class","hauteurFixe446");
+$("#cvs-bloc").append('<p class="paragrapheMessage">La Banque Postale \351volue</p>');
+$("#cvs-bloc").append('<p class="paragrapheMessage"><img alt="logoLbp" src="'+PATH_STATIQUE+'/img/logoLBP.png" /></p>');
+$("#cvs-bloc").append('<p class="paragrapheMessage"></br>La version que vous utilisez n\'est plus maintenue.</br></br>Mettez votre application \340 jour sur le store ou connectez-vous sur labanquepostale.fr.</p>')
+}}function modif_date(){var f=document.getElementById("day").options[document.getElementById("day").options.selectedIndex].text;
+var d=document.getElementById("month").options[document.getElementById("month").selectedIndex].text;
+var e=document.getElementById("year").options[document.getElementById("year").options.selectedIndex].text;
+$("#val_daten").val(""+e+d+f+"");
+valid_ident()
+}function construireSelectsDate(){var b=new Date().getFullYear()-12;
+construireSelect("day",1,31,0);
+construireSelect("month",1,12,0);
+construireSelect("year",1900,b,1)
+}function construireSelect(j,l,i,k){select=document.getElementById(j);
+var m=null;
+if(k==0){for(var n=l;
+n<=i;
+n++){m=document.createElement("option");
+m.value=n;
+if(n<10){m.text="0"+n
+}else{m.text=n
+}select.add(m)
+}}else{for(var h=i;
+h>=l;
+h--){m=document.createElement("option");
+m.value=h;
+if(h<10){m.text="0"+h
+}else{m.text=h
+}select.add(m)
+}}}function blocageWindowsPhone(){var c='Votre application n&apos;est plus compatible avec Windows phone. Nous vous invitons \340 consulter vos comptes depuis le site mobile. <br>Pour cela, rendez-vous sur <span class="lien">https://www.labanquepostale.fr</span> depuis votre mobile, puis s\351lectionnez le bouton bleu comportant un cadenas en haut \340 droite de votre \351cran.';
+var d='<div id="blocBlocageWindowsPhone"><p class="paragrapheMessage"><img alt="logoLbp" src="'+PATH_STATIQUE+'/img/logoLBP.png" /></p><p class="paragrapheMessage">'+c+"</p>";
+$("#messagePrecaution").remove();
+$("#cvs-bloc-identifiant").remove();
+$("#cvs-bloc-date-naissance").remove();
+$("#cvs-bloc-mdp").remove();
+$("#cvs-bloc-boutons").remove();
+$("#cvs-bloc").attr("class","hauteurFixe446");
+$("#cvs-bloc").append(d)
+}function afficherPopInSuiviBudget(){var c="L&apos;application &laquo; Suivi Budget &raquo; n&apos;est plus disponible. La Banque Postale vous propose d&apos;agr&eacute;ger vos diff&eacute;rents comptes bancaires depuis l&apos;application mobile La Banque Postale";
+var d='<div id="blocBlocageWindowsPhone"><p class="paragrapheMessage"><img alt="logoLbp" src="'+PATH_STATIQUE+'/img/logoLBP.png" /></p><p class="paragrapheMessage">'+c+"</p>";
+$("#messagePrecaution").hide();
+$("#cvs-bloc-identifiant").hide();
+$("#cvs-bloc-date-naissance").hide();
+$("#cvs-bloc-mdp").hide();
+$("#cvs-bloc-boutons").hide();
+$("#cvs-bloc").attr("class","hauteurFixe446");
+$("#cvs-bloc").append(d)
+}function afficherCVS(){$("#blocBlocageWindowsPhone").remove();
+$("#messagePrecaution").show();
+$("#cvs-bloc-identifiant").show();
+$("#cvs-bloc-date-naissance").show();
+$("#cvs-bloc-mdp").show();
+$("#cvs-bloc-boutons").show();
+$("#cvs-bloc").show()
+}function ouvrirLien(f,d){f.preventDefault();
+var e;
+if(d==="banquePostale"){e="https://ppfuser:1,user@www.rit.labanquepostale.fr/";
+alert(e)
+}else{if(d==="siteMobile"){e="https://m.labanquepostale.fr/ws_qh5/bad/mobile/site.mobi/smartphone/index.html?origin=mobipph&codeMedia=9228"
+}else{if(d==="versionOs"){e="https://www.labanquepostale.fr/particulier/Outils/aide/accessibilite.html"
+}else{if(d==="store"){if(isIOS()){e="https://itunes.apple.com/fr/app/acces-compte/id409362880?mt=8"
+}else{e="https://play.google.com/store/apps/details?id=com.fullsix.android.labanquepostale.accountaccess"
+}}}}}window.open(e,"_system","location=yes")
+}window.document.forms.formAccesCompte.onsubmit=sendForm;

